@@ -1,7 +1,11 @@
+const managerTareas = require("./managerTareas");
+
 // Función para obtener la fecha actual
+
 function obtenerFechaActual() {
     return new Date().toISOString().split("T")[0];
 }
+
 
 // Pedir y validar título
 function pedirTitulo(rl, continuar) {
@@ -15,6 +19,7 @@ function pedirTitulo(rl, continuar) {
         continuar(titulo);
     });
 }
+
 
 // Pedir y validar descripción
 function pedirDescripcion(rl, continuar) {
@@ -34,6 +39,7 @@ function pedirDescripcion(rl, continuar) {
         continuar(descripcion);
     });
 }
+
 
 // Pedir y seleccionar estado
 function pedirEstado(rl, continuar) {
@@ -65,6 +71,7 @@ function pedirEstado(rl, continuar) {
     });
 }
 
+
 // Pedir y seleccionar dificultad
 function pedirDificultad(rl, continuar) {
     console.log("\n=== DIFICULTAD ===");
@@ -95,6 +102,7 @@ function pedirDificultad(rl, continuar) {
     });
 }
 
+
 // Función principal para agregar una tarea
 function agregarTarea(rl, volverAlMenu) {
 
@@ -115,8 +123,10 @@ function agregarTarea(rl, volverAlMenu) {
                         fechaCreacion: obtenerFechaActual(),
                         fechaFinalizacion: null
                     };
-					
-                    console.log("\n¡Tarea agregada exitosamente!");
+
+                    managerTareas.agregarTarea(tarea);
+
+		    console.log("\n¡Tarea agregada exitosamente!");
                     console.log(tarea);
 
                     // Esperar ENTER antes de volver al menú
